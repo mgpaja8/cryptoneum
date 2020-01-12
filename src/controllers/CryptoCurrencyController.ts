@@ -1,9 +1,15 @@
 import { Request, Response } from 'express';
-import { getAllCryptoCurrencies, getOneCryptoCurrency } from '../services';
+import { getAllCryptoCurrencies, getAllSelectedCryptoCurrencies, getOneCryptoCurrency } from '../services';
 
 export class CryptoCurrencyController {
   static getAll = async (request: Request, response: Response) => {
     const cryptoCurrencies = await getAllCryptoCurrencies();
+
+    response.status(200).json(cryptoCurrencies);
+  }
+
+  static getAllSelected = async (request: Request, response: Response) => {
+    const cryptoCurrencies = await getAllSelectedCryptoCurrencies();
 
     response.status(200).json(cryptoCurrencies);
   }

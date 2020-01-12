@@ -7,6 +7,12 @@ export async function getAllCryptoCurrencies(): Promise<CryptoCurrency[]> {
   return ccRepository.find();
 }
 
+export async function getAllSelectedCryptoCurrencies(): Promise<CryptoCurrency[]> {
+  const ccRepository = getRepository(CryptoCurrency);
+
+  return ccRepository.find({ where: { selected: true }});
+}
+
 export async function getOneCryptoCurrency(id: number): Promise<CryptoCurrency | undefined> {
   const ccRepository = getRepository(CryptoCurrency);
 
