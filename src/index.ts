@@ -9,6 +9,8 @@ createConnection()
   .then(() => {
     app.listen(PORT, () => console.log('Listening on port: ', PORT));
 
-    onServerStart();
+    onServerStart()
+      .then(() => console.log('On server start hook completed.'))
+      .catch(e => console.log('On server start hook error: ', e));
   })
   .catch(e => console.log('Something went wrong while establishing db connection.'));

@@ -6,7 +6,7 @@ import {
   Unique,
   UpdateDateColumn
 } from 'typeorm';
-import { IsNotEmpty, Length } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 @Entity()
 @Unique(['name', 'symbol'])
@@ -24,6 +24,9 @@ export class CryptoCurrency {
 
   @Column()
   rank!: number;
+
+  @Column({ nullable: true })
+  selected?: boolean;
 
   @Column()
   @CreateDateColumn()

@@ -3,6 +3,7 @@
   "database": "db.sqlite",
   "synchronize": true,
   "logging": true,
+  "migrationsRun": true,
   "entities": [
      "src/models/**/*.ts"
   ],
