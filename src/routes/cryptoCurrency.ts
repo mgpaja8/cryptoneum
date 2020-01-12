@@ -3,6 +3,7 @@ import { CryptoCurrencyController } from '../controllers';
 
 const cryptoCurrencyRouter = Router();
 
+cryptoCurrencyRouter.get('/:id', CryptoCurrencyController.getOne);
 cryptoCurrencyRouter.get('/', CryptoCurrencyController.getAll);
 
 export default cryptoCurrencyRouter;
