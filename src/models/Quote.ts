@@ -2,36 +2,28 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
-  Unique,
   UpdateDateColumn
 } from 'typeorm';
 import { IsNotEmpty } from 'class-validator';
-import { Quote } from './Quote';
+import { CryptoCurrency } from './CryptoCurrency';
 
 @Entity()
-@Unique(['name', 'symbol'])
-export class CryptoCurrency {
+export class Quote {
   @PrimaryGeneratedColumn()
   id!: number;
 
   @Column()
   @IsNotEmpty()
-  name!: string;
+  price!: number;
 
   @Column()
   @IsNotEmpty()
-  symbol!: string;
+  marketCap!: string;
 
-  @Column()
-  rank!: number;
-
-  @Column({ nullable: true })
-  selected?: boolean;
-
-  @OneToMany(type => Quote, quote => quote.cryptoCurrency)
-  quotes!: Quote[];
+  @ManyToOne(type => CryptoCurrency, cc => cc.quotes)
+  cryptoCurrency!: CryptoCurrency;
 
   @Column()
   @CreateDateColumn()

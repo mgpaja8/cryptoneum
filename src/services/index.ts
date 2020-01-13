@@ -1,1 +1,2 @@
-export * from './CryptoCurrenyService';
+export * from './CryptoCurrentService';
+export * from './QuoteService';

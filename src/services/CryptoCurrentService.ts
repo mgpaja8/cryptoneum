@@ -16,10 +16,16 @@ export async function getAllSelectedCryptoCurrencies(): Promise<CryptoCurrency[]
 export async function getOneCryptoCurrency(id: number): Promise<CryptoCurrency | undefined> {
   const ccRepository = getRepository(CryptoCurrency);
 
-  return ccRepository.findOne(id);
+  return ccRepository.findOne(id, { relations: ['quotes']});
 }
 
 export async function saveBulkCryptoCurrencies(data: CryptoCurrency[]): Promise<CryptoCurrency[]> {
+  const ccRepository = getRepository(CryptoCurrency);
+
+  return ccRepository.save(data);
+}
+
+export async function saveCryptoCurrency(data: CryptoCurrency): Promise<CryptoCurrency> {
   const ccRepository = getRepository(CryptoCurrency);
 
   return ccRepository.save(data);
