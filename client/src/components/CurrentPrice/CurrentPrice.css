@@ -1,0 +1,16 @@
+.current-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  min-width: 500px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.current-price-text {
+  font-size: 20px;
+  margin-bottom: 10px;
+}

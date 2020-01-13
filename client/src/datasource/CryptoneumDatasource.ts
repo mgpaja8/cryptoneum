@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 import { CryptoneumDatasourceInterface } from './CryptoneumDatasourceInterface';
+import { getCurrencies } from './normalizers';
 import { Currency } from '../models';
 
 export interface CryptoneumDatasourceConfig {
@@ -19,6 +20,6 @@ export class CryptoneumDatasource implements CryptoneumDatasourceInterface {
 
   async getSelected(): Promise<Currency[]> {
     const { data } = await this.client.get('/cryptocurrency/selected');
-    return data;
+    return getCurrencies(data);
   }
 }

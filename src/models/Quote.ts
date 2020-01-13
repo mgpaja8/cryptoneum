@@ -20,7 +20,10 @@ export class Quote {
 
   @Column()
   @IsNotEmpty()
-  marketCap!: string;
+  marketCap!: number;
+
+  @Column()
+  lastUpdated!: string;
 
   @ManyToOne(type => CryptoCurrency, cc => cc.quotes)
   cryptoCurrency!: CryptoCurrency;
