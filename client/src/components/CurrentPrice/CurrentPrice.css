@@ -8,9 +8,18 @@
   padding: 10px;
   border: 1px solid black;
   border-radius: 3px;
+  margin-bottom: 20px;
 }
 
 .current-price-text {
   font-size: 20px;
   margin-bottom: 10px;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
 }
