@@ -1,6 +1,7 @@
 import React from 'react';
 import { Currency } from '../../models';
 import { Sidebar } from '../Sidebar';
+import { CurrencyDetailsContainer } from '../CurrencyDetails';
 import './App.css';
 
 export interface AppProps {
@@ -22,6 +23,7 @@ export class App extends React.PureComponent<AppProps> {
     return (
       <div className='app'>
         <Sidebar selected={selected} focused={focused} setFocused={setFocused}/>
+        <CurrencyDetailsContainer />
       </div>
     );
   }

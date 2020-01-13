@@ -1,0 +1,19 @@
+.currency-details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 20px;
+}
+
+.currency-details-name {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.currency-details-symbol {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
