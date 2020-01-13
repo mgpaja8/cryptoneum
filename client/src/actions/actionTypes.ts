@@ -1,6 +1,6 @@
 import { actionTypeGenerator } from '../lib/redux/actions';
 
-const generalActionGenerator = actionTypeGenerator('GENERAL');
-export const generalActions = {
-  updateStatus: generalActionGenerator.value('UPDATE_STATUS')
+const currencyActionGenerator = actionTypeGenerator('CURRENCY');
+export const currencyActions = {
+  getSelected: currencyActionGenerator.async('GET_SELECTED')
 };

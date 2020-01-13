@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
-    "start": "tsc && node ./dist",
+    "start": "tsc && node ./dist-server",
     "start:dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules ./src",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -29,6 +29,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "class-validator": "^0.10.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "reflect-metadata": "^0.1.13",

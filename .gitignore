@@ -4,3 +4,7 @@ node_modules
 # Test
 coverage
 db.sqlite
+
+# Dist
+dist
+dist-server
