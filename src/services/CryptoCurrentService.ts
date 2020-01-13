@@ -25,10 +25,6 @@ export async function getOneCryptoCurrency(id: number): Promise<CryptoCurrency |
 
   const currency = await ccRepository.findOne(id, { relations: ['quotes']});
 
-  if (!!currency) {
-    currency.quotes = [currency?.quotes[currency.quotes.length - 1]];
-  }
-
   return currency;
 }
 
