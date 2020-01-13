@@ -1,0 +1,27 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 200px;
+
+  background-color: #DDDDDD;
+}
+
+.sidebar-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 40px;
+  padding: 5px 10px;
+}
+
+.sidebar-item:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+.sidebar-item.focused {
+  background-color: white;
+}

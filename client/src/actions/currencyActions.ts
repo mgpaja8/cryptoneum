@@ -14,10 +14,21 @@ export function getSelectedCurrencies(dispatch: Dispatch<Action>): () => void {
           type: currencyActions.getSelected.done,
           value: selected
         });
+
+        dispatch<SuccessAction<Currency>>({
+          type: currencyActions.setFocused,
+          value: selected[0]
+        });
       })
       .catch(error => dispatch<ErrorAction<AxiosError>>({
         type: currencyActions.getSelected.fail,
         error
       }));
+  };
+}
+
+export function setFocused(dispatch: Dispatch<Action>): (currency: Currency) => void {
+  return (currency: Currency) => {
+    dispatch<SuccessAction<Currency>>({ type: currencyActions.setFocused, value: currency });
   };
 }

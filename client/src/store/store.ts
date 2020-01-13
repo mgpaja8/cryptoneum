@@ -13,4 +13,5 @@ export interface GeneralStore {
 
 export interface CurrencyStore {
   selected: APIResult<Currency[], AxiosError>;
+  focused: Currency | undefined;
 }

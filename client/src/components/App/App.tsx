@@ -1,11 +1,14 @@
 import React from 'react';
-import './App.css';
 import { Currency } from '../../models';
+import { Sidebar } from '../Sidebar';
+import './App.css';
 
 export interface AppProps {
   selected: Currency[];
+  focused?: Currency;
 
   getSelected: () => void;
+  setFocused: (currency: Currency) => void;
 }
 
 export class App extends React.PureComponent<AppProps> {
@@ -14,8 +17,11 @@ export class App extends React.PureComponent<AppProps> {
   }
 
   render(): React.ReactNode {
+    const { focused, selected, setFocused } = this.props;
+
     return (
-      <div className='App'>
+      <div className='app'>
+        <Sidebar selected={selected} focused={focused} setFocused={setFocused}/>
       </div>
     );
   }
