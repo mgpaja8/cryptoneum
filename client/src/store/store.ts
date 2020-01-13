@@ -1,10 +1,11 @@
 import { APIResult } from '../lib/redux/reducers';
-import { Currency } from '../models';
+import { Currency, Stats } from '../models';
 import { AxiosError } from 'axios';
 
 export interface BalkaneumStore {
   general: GeneralStore;
   currency: CurrencyStore;
+  stats: StatsStore;
 }
 
 export interface GeneralStore {
@@ -14,4 +15,8 @@ export interface GeneralStore {
 export interface CurrencyStore {
   selected: APIResult<Currency[], AxiosError>;
   focused: Currency | undefined;
+}
+
+export interface StatsStore {
+  stats: APIResult<{[key: number]: Stats}, AxiosError>;
 }

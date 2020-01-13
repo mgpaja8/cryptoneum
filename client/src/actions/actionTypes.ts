@@ -5,3 +5,8 @@ export const currencyActions = {
   getSelected: currencyActionGenerator.async('GET_SELECTED'),
   setFocused: currencyActionGenerator.value('SET_FOCUSED')
 };
+
+const statsActionGenerator = actionTypeGenerator('STATS');
+export const statsActions = {
+  getStat: statsActionGenerator.async('ADD')
+};

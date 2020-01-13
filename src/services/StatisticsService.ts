@@ -4,6 +4,7 @@ import { calculateChange } from '../lib';
 import { CryptoCurrency } from '../models';
 
 export interface Stats {
+  id: number;
   current: StatItem;
   5: StatItem;
   10: StatItem;
@@ -44,6 +45,7 @@ export async function getStats(id: number): Promise<Stats | undefined> {
   });
 
   return {
+    id,
     current: stats[0],
     5: stats[1],
     10: stats[2],
