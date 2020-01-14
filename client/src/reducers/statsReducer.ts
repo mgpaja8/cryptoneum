@@ -24,5 +24,6 @@ function addUpdateStat(store: StatsStore, action: SuccessAction<Stats>): StatsSt
 export default mapReducersArray<StatsStore>([
   [statsActions.getStat.start, loadingReducer('stats')],
   [statsActions.getStat.done, addUpdateStat],
-  [statsActions.getStat.fail, errorReducer('stats')]
+  [statsActions.getStat.fail, errorReducer('stats')],
+  [statsActions.updatedStat, addUpdateStat]
 ], INITIAL_STATE);

@@ -21,3 +21,9 @@ export function getStats(dispatch: Dispatch<Action>): (id: number) => void {
       }));
   };
 }
+
+export function updatedStat(dispatch: Dispatch<Action>): (stats: Stats) => void {
+  return (stats: Stats) => {
+    dispatch<SuccessAction<Stats>>({ type: statsActions.updatedStat, value: stats });
+  };
+}

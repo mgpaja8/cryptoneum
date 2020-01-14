@@ -20,7 +20,7 @@ export class Sidebar extends React.PureComponent<SidebarProps> {
 
   private renderCurrency = (currency: Currency): React.ReactNode => {
     const { focused } = this.props;
-    const className = `sidebar-item ${focused && focused === currency ? 'focused' : ''}`;
+    const className = `sidebar-item ${focused && focused.id === currency.id ? 'focused' : ''}`;
 
     return (
       <div

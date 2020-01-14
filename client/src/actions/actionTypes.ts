@@ -9,5 +9,6 @@ export const currencyActions = {
 
 const statsActionGenerator = actionTypeGenerator('STATS');
 export const statsActions = {
-  getStat: statsActionGenerator.async('ADD')
+  getStat: statsActionGenerator.async('ADD'),
+  updatedStat: statsActionGenerator.value('UPDATED')
 };
