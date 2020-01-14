@@ -4,7 +4,7 @@ import { Action, ErrorAction, SuccessAction } from '../lib/redux/actions';
 import { cryptoneumDatasource } from '../datasource';
 import { currencyActions } from './actionTypes';
 import { getStats } from './statsActions';
-import { Currency } from '../models';
+import { Currency, Quote } from '../models';
 
 export function getSelectedCurrencies(dispatch: Dispatch<Action>): () => void {
   return () => {
@@ -34,5 +34,11 @@ export function getSelectedCurrencies(dispatch: Dispatch<Action>): () => void {
 export function setFocused(dispatch: Dispatch<Action>): (currency: Currency) => void {
   return (currency: Currency) => {
     dispatch<SuccessAction<Currency>>({ type: currencyActions.setFocused, value: currency });
+  };
+}
+
+export function updated(dispatch: Dispatch<Action>): (quote: Quote) => void {
+  return (quote: Quote) => {
+    dispatch<SuccessAction<Quote>>({ type: currencyActions.updatedCurrency, value: quote });
   };
 }

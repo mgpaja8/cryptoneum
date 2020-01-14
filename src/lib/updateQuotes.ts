@@ -1,5 +1,6 @@
 import { balkaneumDatasource } from '../datasource';
 import { getAllSelectedCryptoCurrencies, getOneCryptoCurrency, saveCryptoCurrency, saveQuote } from '../services';
+import { emit } from '../socket';
 import { CryptoCurrency } from '../models';
 
 const QUOTE_INTERVAL = 60 * 1000;
@@ -17,7 +18,11 @@ async function processSelectedCryptoCurrency(cryptoCurrency: CryptoCurrency): Pr
 
 async function fetchNewQuote(symbol: string): Promise<void> {
   const cryptoCurrencyUpdated = await balkaneumDatasource.getOne(symbol);
-  await saveQuote(cryptoCurrencyUpdated.quotes[0]);
+  const quote = await saveQuote(cryptoCurrencyUpdated.quotes[0]);
+  emit('QUOTE_UPDATED', {
+    id: cryptoCurrencyUpdated.id,
+    quote
+  });
 
   const cryptoCurrency = await getOneCryptoCurrency(cryptoCurrencyUpdated.id);
 
